@@ -14,17 +14,11 @@ primes = map fst (filter isPrime trueDivisors)
 -- Aufgabe 2
 {-
 friends :: Int -> Int -> Bool
-friends x y = -}
+friends x y =  -}
 
 -- Aufgabe 3
-weakGoldbachTriples :: Integer -> [(Integer,Integer,Integer)]
-weakGoldbachTriples n = [(x,y,z) | x <- [take 1 [primzahlen 5]], y <- [take 1 [primzahlen 5]], z <- [take 1 [primzahlen 5]]]
-
-primzahlen :: Integer -> [Integer]
-primzahlen n = sieb [2..n]
- where
-	sieb [] = []
-	sieb (p:xs) = p: sieb [k | k<-xs, (mod k p)>0]
+weakGoldbachTriples :: Int -> [(Int,Int,Int)]
+weakGoldbachTriples n = [(x,y,z) | x <- [take (primes 5)], y <- [take (primes 5)], z <- [take (primes 5)]]
   
 -- Aufgabe 6
 --diffList :: [String] -> [String] -> [String]
