@@ -12,13 +12,21 @@ primes = map fst (filter isPrime trueDivisors)
         isPrime (_, teiler) = teiler == [1]
 		
 -- Aufgabe 2
-{-
 friends :: Int -> Int -> Bool
-friends x y =  -}
+friends x y = sum (init (divisors x)) == y && sum (init (divisors y)) == x
 
+allFriendsSmaller :: Int -> [(Int,Int)]
+allFriendsSmaller n = [(x,y)|x <- [1,2..n],y <- [1,2..x-1], x<n, y<n, friends x y]
 -- Aufgabe 3
+-- a)
 weakGoldbachTriples :: Int -> [(Int,Int,Int)]
-weakGoldbachTriples n = [(x,y,z) | x <- [take (primes 5)], y <- [take (primes 5)], z <- [take (primes 5)]]
+weakGoldbachTriples n
+    | even n = error "Please use an odd number cyka!"
+    | otherwise = [(x,y,z) | x <- takeWhile (<n) primes, y <- takeWhile (<n) primes, z <- takeWhile (<n) primes, x+y+z == n, z>= y, z>= x, x<=y]
+-- b)
+wGTriplesUntil m = not $ any tripel [weakGoldbachTriples x | x <- [7,9..m]]
+    where
+	   tripel = null
   
 -- Aufgabe 6
 --diffList :: [String] -> [String] -> [String]
