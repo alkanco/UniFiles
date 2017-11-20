@@ -28,8 +28,14 @@ weakGoldbachTriples n
 wGTriplesUntil m = not $ any tripel [weakGoldbachTriples x | x <- [7,9..m]]
     where
 	   tripel = null
+	   
+-- Aufgabe 4
+
+-- Aufgabe 5
+pythTriplesSmaller :: Int -> [(Int,Int,Int)]
+pythTriplesSmaller n = [(a,b,c)|a <- [1,2..n], b <- [1,2..n], c <- [1,2..n], a^2+b^2==c^2, 0<a, a<=b, b<=c, c<=n]
   
 -- Aufgabe 6
---diffList :: [String] -> [String] -> [String]
-diffList [] [] = []
-diffList x y | (x) == (x) =
+removeItem _[] = []
+diffList :: String -> String -> String
+diffList (x:xs) (y:ys) | y `elem` x = removeItem
