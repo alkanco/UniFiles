@@ -30,13 +30,15 @@ wGTriplesUntil m = not $ any tripel [weakGoldbachTriples x | x <- [7,9..m]] --"n
 	   tripel = null
 	   
 -- Aufgabe 4
-isSorted f (x:y:xs) | f x y == true = --Funktion funktioniert nicht
+isSorted f (x:y:xs) = f x y && isSorted f (y:xs) --Es wird geprüft ob das erste Element und das zweite Element die gegebene Funktion f erfüllen und ob das zweite und alle restlichen Elemente die Funktion erfüllen
+isSorted _ _ = True 
 
 -- Aufgabe 5
 pythTriplesSmaller :: Int -> [(Int,Int,Int)]
 pythTriplesSmaller n = [(a,b,c)|a <- [1,2..n], b <- [1,2..n], c <- [1,2..n], a^2+b^2==c^2, 0<a, a<=b, b<=c, c<=n] --Bedingung aus Aufgabenstellung kopiert, a,b und c werden immer größer
   
 -- Aufgabe 6
+{-
 removeItem _[] = []
 diffList :: String -> String -> String
-diffList (x:xs) (y:ys) | y `elem` x = removeItem --Funktion funktioniert nicht, Idee mit (x:xs) und (y:ys) für beide Listen
+diffList (x:xs) (y:ys) | y `elem` x = removeItem -} --Funktion funktioniert nicht, Idee mit (x:xs) und (y:ys) für beide Listen
