@@ -3,61 +3,58 @@ section .text
 global formula
 
 formula:
-	ADD edi, esi ;(a+b)
-	MOV esi, edx
-	SUB esi, ecx ;(c-d)
+	ADD eax, ebx ;(a+b)
+	MOV ebx, eax
+	SUB ecx, edx ;(c-d)
 	MOV eax, 0
+	MOV eax, ecx
 	MOV edx, 0
-	MOV eax, edi
-    IMUL esi ;(a+b)*(c-d) = t1
-	MOV edi, eax
+    IMUL ebx ;(a+b)*(c-d) = t1
+	MOV ebx, eax
 	MOV eax, 0
 
-	MOV eax, r8d
+	MOV eax, esi
 	MOV esi, 0
 	MOV esi, 8
 	MOV edx, 0
 	IMUL esi ;e*8
-	MOV r8d, eax
-	MOV eax, 0
-	
-	MOV eax, r9d
-	MOV esi, 0
-	MOV edx, 0
-	MOV esi, 4
-	IMUL esi ;f*4
-	MOV r9d, eax
-	MOV eax, 0
-	
-	MOV esi, [rsp+8] ;Stack g
-	MOV ecx, [rsp+16] ;Stack h
-	
-	MOV eax, esi
-	MOV esi, 0
-	MOV edx, 0
-	MOV esi, 2
-	IDIV esi ;g/2
 	MOV esi, eax
 	MOV eax, 0
 	
-	MOV eax, ecx
-	MOV esi, 0
+	MOV eax, edi
+	MOV edi, 0
+	MOV edi, 4
 	MOV edx, 0
-	MOV esi, 4
-	IDIV esi ;h/4
-	MOV ecx, eax
+	IMUL edi ;f*4
+	MOV edi, eax
 	MOV eax, 0
 	
-	ADD r8d, r9d ;e+f
+	MOV r8d, [rsp+8] ;Stack g
+	MOV r9d, [rsp+16] ;Stack h
 	
-	SUB r8d, esi ;(e+f)-g
-	
-	ADD r8d, ecx ;((e+f)-g)+h
-
-	MOV eax, r8d
-	MOV esi, edi
+	MOV eax, 2
 	MOV edx, 0
-	IMUL esi ;t1*t2 = t3
+	IDIV r8d ;g/2
+	MOV r8d, eax
+	MOV eax, 0
+	
+	MOV eax, 4
+	MOV edx, 0
+	IDIV r9d ;h/4
+	MOV r9d, eax
+	MOV eax, 0
+	
+	ADD esi, edi ;e+f
+	
+	SUB esi, r8d ;(e+f)-g
+	
+	ADD esi, r9d ;((e+f)-g)+h
+
+	MOV eax, esi
+	MOV esi, 0
+	MOV esi, ebx
+	MOV edx, 0
+	IMUL ebx ;t1*t2 = t3
 	
 	MOV edx, 0
 	MOV esi, 0
