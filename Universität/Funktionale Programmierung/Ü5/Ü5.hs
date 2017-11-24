@@ -3,3 +3,6 @@ import Data.List (sort)
 potenzSeq :: Int -> Int -> [Int]
 potenzSeq n m = sort [b^e|b<-[2,3..n],e<-[2,3..m]]
 --potenzSeq ist eine quadratische Funktion
+
+--4. Aufgabe
+minNatNotIn [n] = [x|x<-[1..
