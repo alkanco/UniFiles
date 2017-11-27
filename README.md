@@ -1,1 +1,2 @@
 # UniFiles
+Manjaro is sicccc.
