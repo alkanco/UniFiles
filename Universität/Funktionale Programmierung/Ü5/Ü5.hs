@@ -19,7 +19,7 @@ flatten xss = [y | ys <- xss, y <- ys] --Löse Liste nach einander auf
 
 --3. Aufgabe
 potenzSeq :: Int -> Int -> [Int]
-potenzSeq n m = sort (nub [b^e | b <- [2,3..n], e <- [2,3..m]])
+potenzSeq n m = sort (nub [b^e | b <- [2,3..n], e <- [2,3..m]]) --"sort" sortiert die Liste, "nub" entfernt doppelte Zahlen in der Liste
 --potenzSeq ist eine lineare Funktion
 --Es gilt: O(n*m)
 
@@ -31,4 +31,4 @@ minNatNotIn xs = minimum [y | z <- [last xs], y <- [0..z], notElem y xs]
 
 --5. Aufgabe
 --Eingabewert: n = Länge der Liste xs
---Es gilt: 
+--Es gilt: O(log(n))
