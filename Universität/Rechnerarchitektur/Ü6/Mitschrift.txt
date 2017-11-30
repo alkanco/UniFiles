@@ -1,0 +1,13 @@
+Aufgabe 1:
+macro add $s, $t ; s=s+t
+add $s,$s,$t
+
+Als Zwischenspeicher, Zwischenspeicherregister $t0-$t9!
+Bits rotieren:Bits auf anderer Seite wieder rein schieben!
+
+Aufgabe 2:
+'0' verwenden um String zu beenden!
+mov al,[rdi+rcx] ;hole Wert aus Adresse rdi+Stelle die rcx angibt
+mov [rdi],al ;schreibe Wert in Adresse rdi
+Negative Zahlen können vorkommen!
+5+'0' = '5' ;In ASCII umrechnen

@@ -1,0 +1,8 @@
+Piano-Axiome
+Beispiel: Sei W Menge aller natürlichen Zahlen n für die P(n) wahr.
+
+1. Induktionsanfang (Anker)
+2. Induktionsschritt:
+	-Induktionsannahme
+
+Frage wird mit "=?"(?über=) gekennzeichnet.
