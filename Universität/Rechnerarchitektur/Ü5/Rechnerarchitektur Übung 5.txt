@@ -1,9 +1,0 @@
-Frage 1
-der IEEE 754 Standard bringt die Festlegungen single, single extended, double und double extended.
-Es gibt beim IEEEE Format zwei Varienten, das einfach egnaue Format mit 32 Bit und das doppelt genaur Format mit 64 Bit.
-Dadurch dass die Ergebnisse und Zwischenergebnisse bei einer Geltikomma Operation nach IEEE 754 normiert wurde, ergab sich der Vorteil, dasss das ergebniss auf jeden Rechner und jeder JVM immer das gleiche war. ( https://books.google.de/books?id=2BgjBgAAQBAJ&pg=PA120&lpg=PA120&dq=vorteile+ieee+754&source=bl&ots=K1_PB1Vjxu&sig=aRHBqcDJ2x7TfGlb26EtKoA_OqY&hl=de&sa=X&ved=0ahUKEwjMv7azmuHXAhVCRhQKHbbeDMQQ6AEIYDAI#v=onepage&q=vorteile%20ieee%20754&f=false )
-
-Frage 2
-Betragsmäßig höchste und niedrigste Zahlen bei 32Bit sind die -126 und die 127
-11111110 also 127. Die größe Mantisse sind alles 1en mit der versteckten 1.
-
