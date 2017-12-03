@@ -3,22 +3,31 @@
 --1. Aufgabe
 listOfLocalMaxs :: Ord a => [a] -> [a]
 listOfLocalMaxs (x:y:z:xs) = if max then y:(listOfLocalMaxs (y:z:xs)) else listOfLocalMaxs (y:z:xs)
-  where
-      max = y > x && y > z
+    where
+        max = y > x && y > z
 listOfLocalMaxs _ = []
 
 --4. Aufgabe
 data Weekday = Mo | Tu | We | Th | Fr | Sa | Su deriving Show
-data Month = Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec
+data Month = Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec deriving Eq
 
---weekday :: Int -> Month -> Int -> Weekday
+weekday :: Int -> Month -> Int -> Weekday
 weekday t m y 
-   |  = num2weekday ((t + x + (31 * m0) `div` 12) `mod` 7)
-   | otherwise = error "test"
-	where
-		y0 = y - (14 - month2Num m) `div` 12
-		x = y0 + y0 `div` 4 - y0 `div` 100 + y0 `div` 400
-		m0 = (month2Num m) + 12 * ((14 - (month2Num m)) `div` 12) - 2
+    | m `elem` [Jan,Mar,May,Jul,Sep,Nov] && t < 32 = num2weekday ((t + x + (31 * m0) `div` 12) `mod` 7)
+    | m `elem` [Apr,Jun,Aug,Oct,Dec] && t < 31 = num2weekday ((t + x + (31 * m0) `div` 12) `mod` 7)
+    | m == Feb && isLeapYear y && t < 30 = num2weekday ((t + x + (31 * m0) `div` 12) `mod` 7)
+    | m == Feb && isLeapYear y == False && t < 29 = num2weekday ((t + x + (31 * m0) `div` 12) `mod` 7)
+    | otherwise = error "Please enter a valid Date!"
+    where
+        y0 = y - (14 - month2Num m) `div` 12
+        x = y0 + y0 `div` 4 - y0 `div` 100 + y0 `div` 400
+        m0 = (month2Num m) + 12 * ((14 - (month2Num m)) `div` 12) - 2
+
+isLeapYear :: Int -> Bool
+isLeapYear x
+    | x `mod` 400 == 0 = True
+    | x `mod` 100 == 0 = False
+    | otherwise = x `mod` 4 == 0
 
 month2Num :: Month -> Int
 month2Num Jan = 1
