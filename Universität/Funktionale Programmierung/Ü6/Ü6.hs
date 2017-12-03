@@ -1,4 +1,5 @@
 --Funktionale Programmierung 6. Übung
+--William Djalal, Nils Kerk
 
 --1. Aufgabe
 listOfLocalMaxs :: Ord a => [a] -> [a]
@@ -6,6 +7,23 @@ listOfLocalMaxs (x:y:z:xs) = if max then y:(listOfLocalMaxs (y:z:xs)) else listO
     where
         max = y > x && y > z
 listOfLocalMaxs _ = []
+
+--3. Aufgabe
+--a)
+data Root3Num = Root3Num Int Int deriving Show
+
+addOperator :: Root3Num -> Root3Num -> Root3Num
+addOperator (Root3Num a b) (Root3Num c d) = Root3Num (a+c) (b+d)
+
+subOperator :: Root3Num -> Root3Num -> Root3Num
+subOperator (Root3Num a b) (Root3Num c d) = Root3Num (a-c) (b-d)
+
+mulOperator :: Root3Num -> Root3Num -> Root3Num
+mulOperator (Root3Num a b) (Root3Num c d) = Root3Num (a*(c+d)) (b*(c+d))
+
+--b)
+getValue :: Root3Num -> Double
+getValue (Root3Num a b) = (addOperator (Root3Num a b))  * sqrt 3
 
 --4. Aufgabe
 data Weekday = Mo | Tu | We | Th | Fr | Sa | Su deriving Show
