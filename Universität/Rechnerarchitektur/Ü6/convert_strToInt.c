@@ -13,7 +13,6 @@
 #define STR_LEN	50
 
 extern int64_t strToInt(const char*, uint8_t);
-extern size_t intToStr(int64_t, uint8_t, char*, size_t);
 
 int main(int argc, char* argv[]) {
 	if(argc < 3) {
@@ -22,18 +21,14 @@ int main(int argc, char* argv[]) {
 	}
 
 	char* end = NULL;
-	int64_t base = strtoull(argv[2], &end, 10);
-	if(*end) {
+	uint64_t base = strtoul(argv[2], &end, 10);
+	if(*end || base > 255) {
 		printf(BOLD RED "No valid base: %s\n" RESET, argv[2]);
 		return EXIT_FAILURE;
 	}
 
 	int64_t val = strToInt(argv[1], (uint8_t)base);
-	printf("Integer: %"PRId64"_%"PRIu8"\n", val, (uint8_t)base);
-
-	char int_str[STR_LEN];
-	size_t len = intToStr(val, (uint8_t)base, int_str, STR_LEN);
-	printf("String: %s, Length: %zu\n", int_str, len);
+	printf("Integer: %"PRId64"_10\n", val);
 
 	return EXIT_SUCCESS;
 }
