@@ -1,7 +1,0 @@
-1.
-a)
- symmetrisch: Bedingung xRy => yRx
- x <= y => y <= x
- Gegenbeweis: y=5, x=10
-
- transitiv: Bedingung xRy und yRz => yRz

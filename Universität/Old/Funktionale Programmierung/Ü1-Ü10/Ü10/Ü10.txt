@@ -1,0 +1,133 @@
+﻿Funktionale Programmierung
+William Djalal
+Übung 10
+
+Aufgabe 1:
+1)
+Syntaktisch korrekt.
+
+2)
+Syntaktisch korrekt.
+
+3)
+Syntaktisch korrekt.
+
+4)
+Syntaktisch inkorrekt, da immer ein Funktionsaufruf benötigt wird.
+
+5)
+Syntaktisch inkorrekt, da Lambda das x als Funktion aufruft und
+dazwischen kein Komma stehen darf. Desweiteren ist ein Terminierungspunkt zu viel vorhanden.
+
+6)
+Syntaktisch inkorrekt, da ein Terminierungspunkt zu viel vorhanden ist.
+
+7)
+Syntaktisch korrekt.
+
+Aufgabe 2:
+1)
+X und Y sind gebunden, da Y zuerst von λy aufgenommen wird
+und dann X von λx.
+
+2)
+Alle Variablen sind gebunden, außer dem z außerhalb der Klammer.
+
+3)
+Das x nach Lambda x ist gebunden, sowie das zweite x nach dem zweiten Lambda x.
+Alle anderen Variablen sind gebunden.
+
+4)
+Die Variablen b und x sind nicht gebunden. Der Rest hingegen schon.
+
+Aufgabe 3:
+1)
+
+(λzy.z(λabc.b(abc))y) (λsz.z) (λsz.s(z))
+
+= (λy.(λsz.z)(λabc.b(abc))y) (λsz.s(z))
+
+= (λsz.z)(λabc.b(abc))(λsz.s(z))
+
+= (λz.z)(λsz.s(z))
+
+= λsz.s(z)
+
+= 1
+
+2)
+
+(λzy.zy(λab.b)) (λab.a) (λab.b) z y
+
+= (λzy.zy(λab.b)) (λdb.d) (λac.c) z y
+
+= (λy.(λdb.d)y(λab.b)) (λac.c) z y
+
+= (λdb.d)(λac.c)(λab.b) z y
+
+= (λb.(λac.c))(λab.b) z y
+
+= (λac.c) z y
+
+= (λc.c) y
+
+= y
+
+Aufgabe 4:
+1)
+Die Gleichung ist korrekt, da nur eine α-Konversion fehlt, um beide Terme identisch zu machen.
+
+2)
+((λb.λa.(a)b)λy.(y)(y)y)λx.(x)x    = (λa.(λb.(b)b)a)λy.(y)(y)y 
+(λa.(a)λy.(y)(y)y)λx.(x)x	   = (λb.(b)b)λy.(y)(y)y
+(λx.(x)x)λy.(y)(y)y   	           = (λy.(y)(y)y)λy.(y)(y)y
+(λy.(y)(y)y)λy.(y)(y)y		   = (λy.(y)(y)y)(λy.(y)(y)y)λy.(y)(y)y
+(λy.(y)(y)y)(λy.(y)(y)y)λy.(y)(y)y = (λy.(y)(y)y)(λy.(y)(y)y)λy.(y)(y)y
+
+Die Gleichung ist korrekt, da beide Terme in die selbe endlose Reduktion resultieren.
+Es herscht ein Bottom Zustand.
+
+Aufgabe 5:
+
+I ≡ ∨F ≡ F¬
+
+λx.x ≡ λxy.xTy λab.b ≡ λxy.y λa.aFT
+
+λx.x ≡ λy.λab.bTy ≡ λy.y
+
+λx.x ≡ λy.λb.b ≡ λy.y
+
+λx.x ≡ λb.b ≡ λy.y
+
+Aufgabe 6:
+1)
+
+Z ≡ λx.xF¬F
+
+H ≡ (λpz.z(S(pT))(pT))
+
+P ≡ (λn.nH(λz.z00)F)
+
+≠ ≡ ¬(λxy.∧Z(xPy)Z(yPx)FT)
+
+
+2)
+
+λxy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+ADD r0, r1, r2
+NOP
+NOP
+NOP
+NOP
+SUB r1, r5, r0
+MOV [rsp+8], r5
+OR r0, r5, r4
+MOV r3, [rsp+24]
+NOP
+NOP
+NOP
+NOP
+AND r1, r0, r3
+NOP
+NOP
+NOP
+NOP
+ADD r0, r1, r3
+NOP
+NOP
+NOP
+NOP
+ADD r0, r0, 0x341D
+NOP
+NOP
+NOP
+NOP
+ADD r0, r0, 0x52F6
+

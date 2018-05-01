@@ -1,0 +1,50 @@
+﻿Funktionale Programmierung
+11. Übungsblatt
+William Djalal
+
+1. Aufgabe
+f ≡ Y(λrn.Zn1(Z(Pn)1(S(*(3)(r(Pn))))))
+
+2. Aufgabe
+{sub} ≡ λxy.(z.z(A(xT)(yF))(A(xF)(yT)))
+
+3. Aufgabe
+g ≡ Y(λrxy.Zx(x y)(Zy(x y)(r(Px Py))))
+
+5. Aufgabe
+{TNIL} = λx.x(λabc.a)
+{HEAD} = λx.x(λabc.b)
+{TAIL} = λx.x(λabc.c)
+{LEN} = λrl.{TNIL} l 0 (S(r({TAIL}l)))
+
+h ≡ Y(λrxy.Z({LEN}x)(Z({LEN}y)(0)(1))(Z({LEN}y)(-1)(r(Px Py)))
+
+Wenn Liste x gleich null ist und Liste y gleich null ist, dann sind beide Listen gleich lang.
+Wenn Liste x gleich null ist und Liste y nicht gleich null ist, dann ist Liste x kleiner.
+Wenn Liste x nicht gleich null ist und Liste y gleich null ist, dann ist Liste x größer.
+Wenn Liste x nicht gleich null ist und Liste y nicht gleich null ist, dann führe die Funktion nochmal rekursiv aus mit beiden Längen -1.
+
+6. Aufgabe
+a)
+{searchElem} ≡ Y(λrxl.{TNIL}l (F)(E x ({HEAD}l)(T)(r(x ({TAIL}l)))))
+
+Wenn die Liste l leer ist, dann brich die Rekursion ab und gebe False aus.
+Ansonsten vergleich x mit dem Kopf der Liste l.
+Wenn sie gleich sind, gebe True aus.
+Ansonsten führe die Funktion rekursiv aus mit x und dem Rest der Liste l.
+
+b)
+{remove} ≡ Y(λryl.{TNIL}l(l)(E y ({HEAD}l)({TAIL}l)(({HEAD}l)(r(y{TAIL}l)))
+
+Wenn Liste l null ist, gebe Liste l zurück.
+Wenn y und Kopf der Liste l gleich sind, gebe Rest der Liste l zurück.
+Ansonsten tue Kopf der Liste l vor die Rekursion, die mit y und dem Rest der Liste l ausgeführt wird.
+
+7. Aufgabe
+a)
+fix (\r n -> if n == 0 then 1 else 2 * (r(n-1)))
+
+8. Aufgabe
+
+fix collatz
+
