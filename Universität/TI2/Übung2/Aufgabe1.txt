@@ -1,0 +1,17 @@
+Interrupts unterbrechen ein Programm und all seine
+Aktivität um auf zum Beispiel eine Tastatureingabe
+zu warten.
+Polling hingegen ist eine zyklische Abfrage,
+die auf eine Eingabe etc. wartet, ohne das
+jeweilige Programm zu unterbrechen.
+
+Der Vorteil an Polling ist vor allem die Geschwindigkeit
+im Gegensatz zu Interrupts. Eine Abfrage kann
+innerhalb von ein paar Mikrosekunden statt
+finden. Der Nachteil von Polling ist die Effizienz,
+wobei pollende Programme teilweise alle Ressourcen
+nutzen können, die das System zur Verfügung hat, da immer
+in bestimmten Abständen nach Eingaben gefragt wird.
+Interrupts sind dabei wesentlich effizienter, sind
+auch deterministisch und bieten zum Beispiel keine Variationen in
+der allgemeinen Performance.
