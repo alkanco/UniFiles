@@ -1,16 +1,14 @@
 import sys
 
-def countLetters (list):
+def countLetters(list):
     #Create Dictionary
     countDict = {}
     #Go through given list
-    for i in range (0, len(list)):
-        #If element already is in dictionary, count + 1
-        if list[i] in countDict:
-            countDict[list[i]] += 1
-        else:
-            countDict[list[i]] = 1
+    for letter in list:
+        #Count element in dictionary
+        countDict[letter] = countDict.get(letter, 0) + 1
     #Return finished dictionary
     return countDict
 
-print (countLetters(sys.argv[1]))
+#Call function with given input
+print(countLetters(sys.argv[1]))

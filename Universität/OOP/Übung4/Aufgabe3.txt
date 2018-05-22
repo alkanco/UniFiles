@@ -1,0 +1,47 @@
+Insertsort:
+Vorgehen:
+  - Erstellt neue Liste
+  - Sortiert zufällige Zahl in neue Liste ein
+  - Überprüft neue Liste von links nach rechts
+
+Vorteile:
+  - leicht zu implementieren
+  - effizient bei kleinen und teilweise sortierten Mengen
+  - kein zusätzlicher Speicherplatz benötigt
+
+Quicksort:
+Vorgehen:
+  - Teilt am Pivot Liste in 2
+  - Zahlen kleiner als Pivot gehen nach links, größer nach rechts
+  - Erstellt Listen in Listen bis Liste nur noch 1 Element besitzt
+
+Vorteile:
+  - Sehr kurze Schleife -> kurze Ausführungszeit
+
+3. Aufgabe
+
+a)
+  Der Insertsort Algorithmus ist vor allem bei kurzen und schon teilweise
+  sortierten Listen sinnvoller als der Quicksort-Algorithmus. Der Quicksort
+  muss immer mehr Listen in Listen erstellen, je länger die zu sortierende Menge ist.
+  Der Insertsort dagegen erstellt nur eine weitere Liste, in der ohne weiteren Speicher zu benötigen
+  alle Eingaben sofort einsortiert werden.
+
+c)
+  Der Quicksort-Algorithmus aus der Vorlesung ist instabil,
+  da nicht garantiert wird, ob die Reihenfolge von gleichen
+  Elementen beim Sortieren beibehalten wird.
+  Wenn wir nun Elemente haben, die identisch sind wie zum Beispiel
+  sechs mal die "3", möchten wir im ideal Fall, dass diese ihre Position nicht verändern.
+  Da aber der Algorithmus durch die Liste geht und Elemente verschiebt,
+  kann diese ursprüngliche Reihenfolge im schlechten Fall zerstört werden.
+  Dadurch ist der Quicksort-Algorithmus aus der Vorlesung instabil.
+
+e)
+  Das kleinste Element kann nur so oft bewegt werden, wie die
+  Länge der Liste durch 2 gerechnet werden kann. Als Beispiel
+  eine Liste mit 15 Elementen kann 4x durch 2 gerechnet werden.
+  1. Teilgruppe: 15/2 ~ 8
+  2. Teilgruppe: 8/2 = 4
+  3. Teilgruppe: 4/2 = 2
+  4. Teilgruppe: 2/2 = 1
