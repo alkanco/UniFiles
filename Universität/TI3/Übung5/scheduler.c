@@ -9,7 +9,7 @@ struct Process* rr(struct Process* head, struct Process* current) {
 struct Process* fcfs(struct Process* head, struct Process* current)
 {
 		//If current process is not done
-		if (current->cycles_todo > 0)
+		if (current->cycles_todo != done)
 		{
 				//Do current process
 				return current;
@@ -26,7 +26,7 @@ struct Process* spn(struct Process* head, struct Process* current)
 		while (current != NULL)
 		{
 				//If current process is shorter than shortest
-				if (current->cycles_todo + current->cycles_done < shortest->cycles_todo + shortest->cycles_done)
+				if (current->cycles_todo < shortest->cycles_todo)
 				{
 						//Set current process to newest shortest
 						shortest = current;
@@ -46,7 +46,7 @@ struct Process* srt(struct Process* head, struct Process* current)
 		while (current != NULL)
 		{
 				//If current process is shorter than shortest
-				if (current->cycles_todo < shortest->cycles_todo)
+				if (current->cycles_todo - done < shortest->cycles_todo - done)
 				{
 						//Set current process to newest shortest
 						shortest = current;
